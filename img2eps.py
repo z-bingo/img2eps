@@ -24,6 +24,7 @@ def startConvert():
     global path
     for f in all_files:
         f_split = os.path.splitext(f)
+        label_text.set('Processing {} ...\n'.format(f) + label_text.get())
         img = Image.open(os.path.join(path, f))
         img.save('{}.eps'.format(os.path.join(path, f_split[-2])), 'EPS')
         label_text.set('Processing {} done!\n'.format(f) + label_text.get())
